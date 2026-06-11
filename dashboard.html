@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+<img src="logo.png" class="logo-small">
+
+<h2 id="welcome"></h2>
+
+<div class="card">
+<h3>Fee Details</h3>
+<p>Monthly Fee: ₹<span id="monthlyFee"></span></p>
+<p>Total Due: ₹<span id="dueAmount"></span></p>
+</div>
+
+<div class="card">
+<h3>Weekly Test Results</h3>
+
+<p>WT1 : <span id="wt1"></span></p>
+<p>WT2 : <span id="wt2"></span></p>
+<p>WT3 : <span id="wt3"></span></p>
+<p>WT4 : <span id="wt4"></span></p>
+
+</div>
+
+<div class="card">
+<h3>Announcements</h3>
+<p id="announcement"></p>
+</div>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<script>
+
+const student = JSON.parse(localStorage.getItem("student"));
+
+if(!student){
+window.location="index.html";
+}
+
+document.getElementById("welcome").innerHTML =
+"Welcome, "+student.name+" (Class "+student.class+")";
+
+document.getElementById("monthlyFee").innerHTML =
+student.monthlyFee;
+
+document.getElementById("dueAmount").innerHTML =
+student.dueAmount;
+
+document.getElementById("wt1").innerHTML =
+student.wt1;
+
+document.getElementById("wt2").innerHTML =
+student.wt2;
+
+document.getElementById("wt3").innerHTML =
+student.wt3;
+
+document.getElementById("wt4").innerHTML =
+student.wt4;
+
+document.getElementById("announcement").innerHTML =
+student.announcement;
+
+function logout(){
+localStorage.clear();
+window.location="index.html";
+}
+
+</script>
+
+</body>
+</html>
